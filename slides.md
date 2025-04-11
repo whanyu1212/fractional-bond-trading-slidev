@@ -3,7 +3,7 @@
 theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://static.vecteezy.com/system/resources/previews/005/176/304/non_2x/blockchain-concept-banner-isometric-digital-blocks-connection-with-each-other-and-shapes-crypto-chain-blocks-or-cubes-connection-consists-digits-abstract-technology-background-illustration-free-vector.jpg
+background: https://images.unsplash.com/photo-1639322537231-2f206e06af84?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGJsb2NrY2hhaW58ZW58MHx8MHx8fDA%3D
 # some information about your slides (markdown enabled)
 title: Fractional Bond Trading Sharing
 info: |
@@ -593,26 +593,44 @@ hideInToc: true
 
 # Frontend (3)
 
-<div class="grid grid-cols-2 gap-2 h-[90%]">
-  <!-- Left half - Bond Purchase -->
+<div class="grid grid-cols-2 gap-4 h-[90%]">
+  <!-- Left half - Primary Market -->
   <div class="flex flex-col h-full">
     <h3 
       class="text-blue-500 mb-3"
       v-motion
       :initial="{ opacity: 0, y: -20 }"
-      :enter="{ opacity: 1, y: 0, transition: { duration: 1200 } }"
+      :enter="{ opacity: 1, y: 0, transition: { duration: 800 } }"
     >
       Primary Market Actions
     </h3>
-    <img src="./imgs/1744334556596.jpg" alt ="issuance" class="w-2/3 rounded-lg shadow-md" >
+    <img 
+      src="./imgs/1744334556596.jpg" 
+      alt="Primary market interface" 
+      class="w-2/3 rounded-lg shadow-md mt-2" 
+      v-motion
+      :initial="{ opacity: 0, scale: 0.9 }"
+      :enter="{ opacity: 1, scale: 1, transition: { delay: 400, duration: 600 } }"
+    />
   </div>
 
-  <!-- Right half - Bond Management -->
+  <!-- Right half - Secondary Market -->
   <div class="flex flex-col h-full">
-  <br>
-  <br>
-    <img src="./imgs/1744334611427.jpg" alt ="issuance" class="rounded-lg shadow-md" >
-    
+    <h3 
+      class="text-green-500 mb-3"
+      v-motion
+      :initial="{ opacity: 0, y: -20 }"
+      :enter="{ opacity: 1, y: 0, transition: { delay: 200, duration: 800 } }"
+    >
+    </h3>
+    <img 
+      src="./imgs/1744334611427.jpg" 
+      alt="Secondary market interface" 
+      class="w-full rounded-lg shadow-md mt-2" 
+      v-motion
+      :initial="{ opacity: 0, scale: 0.9 }"
+      :enter="{ opacity: 1, scale: 1, transition: { delay: 600, duration: 600 } }"
+    />
   </div>
 </div>
 
@@ -724,7 +742,7 @@ Code snippet and actual contract addresses
     <li>
       BondFactory:
       <a href="https://sepolia.etherscan.io/address/0x8f0CEd3a1a468d9A4968879F918Bcfb18DA8dc24" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-400 underline">
-        <code>0x123...abc</code>
+        <code>0x8f0...c24</code>
       </a>
     </li>
     <br>
@@ -732,7 +750,7 @@ Code snippet and actual contract addresses
     <li>
       BondMarketplace:
       <a href="https://sepolia.etherscan.io/address/0xF66B3B3F6DdD8260B47eE1b00e7ab0e81965Bfd7" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-400 underline">
-        <code>0x456...def</code>
+        <code>0xF66...fd7</code>
       </a>
     </li>
     <br>
@@ -742,7 +760,7 @@ Code snippet and actual contract addresses
       <a href="https://sepolia.etherscan.io/address/0x9A1ac536dCFa4ddf7a219AcF70F9CFd25660eFFf
 Decimals
 " target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-400 underline">
-        <code>0x789...ghi</code>
+        <code>0x9A1a...FFf</code>
       </a>
     </li>
     <br>
@@ -750,7 +768,7 @@ Decimals
     <li>
       Sample bond address:
       <a href="https://sepolia.etherscan.io/address/0x853EbE377ce1820e834412b96F0c4C4B230df4A6" target="_blank" rel="noopener noreferrer" class="text-green-600 hover:text-green-400 underline">
-        <code>0x456...def</code>
+        <code>0x853...4A6</code>
       </a>
     </li>
   </ul>
@@ -828,7 +846,6 @@ transition: fade-in
 </div>
 </div>
   
-  <!-- Right half - Future Work -->
 <!-- Right half - Future Work -->
 <div
   v-motion
@@ -910,6 +927,93 @@ h1 {
 h3 {
   font-size: 1.25rem;
   font-weight: 600;
+}
+</style>
+
+
+---
+transition: fade-in
+---
+
+# Learning Outcomes
+
+<div
+  class="flex flex-col max-w-4xl mx-auto"
+  v-motion
+  :initial="{ opacity: 0, y: 20 }"
+  :enter="{ opacity: 1, y: 0, transition: { duration: 800 } }"
+>
+  <div class="space-y-6 mt-4">
+    <div class="flex items-start"> 
+      <div class="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center text-white mr-4 flex-shrink-0 shadow-md">
+        <carbon:idea class="text-lg" />
+      </div>
+      <div> 
+        <div class="font-medium text-lg">Importance of adopting a user-centric design</div>
+        <div class="mt-2 text-sm opacity-80 ml-2">
+          - Clarify contract interactions, required parameters, and potential state conflicts before extensive coding
+        </div>
+      </div>
+    </div>
+    <div class="flex items-start"> 
+      <div class="h-8 w-8 rounded-full bg-purple-500 flex items-center justify-center text-white mr-4 flex-shrink-0 shadow-md">
+        <carbon:chip class="text-lg" /> 
+      </div>
+      <div>
+        <div class="font-medium text-lg">Better understanding of ERC-20 standard</div>
+        <div class="mt-2 text-sm opacity-80 ml-2">
+          - Allowance, Approval, Ownership related properties
+        </div>
+      </div>
+    </div>
+     <div class="flex items-start"> 
+    <div class="h-8 w-8 rounded-full bg-blue-500 flex items-center justify-center text-white mr-4 flex-shrink-0 shadow-md">
+      <carbon:connect class="text-lg" />
+    </div>
+    <div> 
+      <div class="font-medium text-lg">Eliminating development silos</div>
+      <div class="mt-2 text-sm opacity-80 ml-2">
+        - Frontend and smart contract developers need consistent communication
+      </div>
+      <div class="mt-1 text-sm opacity-80 ml-2">
+        - Early alignment on interfaces avoids incompatible implementations
+      </div>
+      <div class="mt-1 text-sm opacity-80 ml-2">
+        - Shared understanding of state transitions prevents integration issues
+      </div>
+    </div>
+  </div>
+  <div class="flex items-start"> 
+  <div class="h-8 w-8 rounded-full bg-green-500 flex items-center justify-center text-white mr-4 flex-shrink-0 shadow-md">
+    <carbon:blockchain class="text-lg" />
+  </div>
+  <div> 
+    <div class="font-medium text-lg">Blockchain-specific programming mindset</div>
+    <div class="mt-2 text-sm opacity-80 ml-2">
+      - Considering state management carefully as all changes are permanent
+    </div>
+    <div class="mt-1 text-sm opacity-80 ml-2">
+      - Optimizing for gas costs to ensure economic viability of transactions
+    </div>
+    <div class="mt-1 text-sm opacity-80 ml-2">
+      - Planning for immutability and designing upgrade patterns when needed
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+<style>
+/* Your existing style block - no changes needed here */
+h1 {
+  background-color: #2B90B6;
+  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
 }
 </style>
 
